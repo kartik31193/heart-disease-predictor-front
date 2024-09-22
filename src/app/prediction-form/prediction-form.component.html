@@ -1,0 +1,129 @@
+<div class="form-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Heart Disease Prediction</mat-card-title>
+        <mat-card-subtitle>Fill in the details to get your prediction</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <form [formGroup]="predictionForm" (ngSubmit)="onSubmit()">
+  
+          <!-- Age -->
+          <mat-form-field appearance="outline">
+            <mat-label>Age</mat-label>
+            <input matInput formControlName="age" placeholder="Enter your age" type="number" required>
+          </mat-form-field>
+  
+          <!-- Sex -->
+          <mat-form-field appearance="outline">
+            <mat-label>Sex</mat-label>
+            <mat-select formControlName="sex">
+              <mat-option value="1">Male</mat-option>
+              <mat-option value="0">Female</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- Chest Pain Type -->
+          <mat-form-field appearance="outline">
+            <mat-label>Chest Pain Type</mat-label>
+            <mat-select formControlName="chestPainType">
+              <mat-option value="0">Typical Angina</mat-option>
+              <mat-option value="1">Atypical Angina</mat-option>
+              <mat-option value="2">Non-Anginal Pain</mat-option>
+              <mat-option value="3">Asymptomatic</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- Resting Blood Pressure -->
+          <mat-form-field appearance="outline">
+            <mat-label>Resting Blood Pressure (mm Hg)</mat-label>
+            <input matInput formControlName="restingBP" placeholder="Enter blood pressure" type="number" required>
+          </mat-form-field>
+  
+          <!-- Cholesterol -->
+          <mat-form-field appearance="outline">
+            <mat-label>Cholesterol (mg/dL)</mat-label>
+            <input matInput formControlName="cholesterol" placeholder="Enter cholesterol level" type="number" required>
+          </mat-form-field>
+  
+          <!-- Fasting Blood Sugar -->
+          <mat-form-field appearance="outline">
+            <mat-label>Fasting Blood Sugar</mat-label>
+            <mat-select formControlName="fastingBloodSugar">
+              <mat-option value="1">True (FBS > 120 mg/dL)</mat-option>
+              <mat-option value="0">False</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- Resting ECG Results -->
+          <mat-form-field appearance="outline">
+            <mat-label>Resting ECG</mat-label>
+            <mat-select formControlName="restingECG">
+              <mat-option value="0">Normal</mat-option>
+              <mat-option value="1">Having ST-T wave abnormality</mat-option>
+              <mat-option value="2">Left Ventricular Hypertrophy</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- Max Heart Rate -->
+          <mat-form-field appearance="outline">
+            <mat-label>Max Heart Rate</mat-label>
+            <input matInput formControlName="maxHeartRate" placeholder="Enter max heart rate" type="number" required>
+          </mat-form-field>
+  
+          <!-- Exercise Induced Angina -->
+          <mat-form-field appearance="outline">
+            <mat-label>Exercise Induced Angina</mat-label>
+            <mat-select formControlName="exerciseInducedAngina">
+              <mat-option value="1">Yes</mat-option>
+              <mat-option value="0">No</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- ST Depression Induced by Exercise -->
+          <mat-form-field appearance="outline">
+            <mat-label>ST Depression (mm)</mat-label>
+            <input matInput formControlName="stDepression" placeholder="Enter ST depression" type="number" required>
+          </mat-form-field>
+  
+          <!-- Slope of the Peak Exercise ST Segment -->
+          <mat-form-field appearance="outline">
+            <mat-label>Slope of ST Segment</mat-label>
+            <mat-select formControlName="stSlope">
+              <mat-option value="0">Upsloping</mat-option>
+              <mat-option value="1">Flat</mat-option>
+              <mat-option value="2">Downsloping</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- Number of Major Vessels (0-3) Colored by Fluoroscopy -->
+          <mat-form-field appearance="outline">
+            <mat-label>Number of Major Vessels</mat-label>
+            <input matInput formControlName="numMajorVessels" placeholder="Enter number of major vessels (0-3)" type="number" required>
+          </mat-form-field>
+  
+          <!-- Thalassemia -->
+          <mat-form-field appearance="outline">
+            <mat-label>Thalassemia</mat-label>
+            <mat-select formControlName="thalassemia">
+              <mat-option value="1">Normal</mat-option>
+              <mat-option value="2">Fixed Defect</mat-option>
+              <mat-option value="3">Reversible Defect</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <!-- Submit Button -->
+          <div class="button-container">
+            <button mat-raised-button color="primary" type="submit">Predict</button>
+          </div>
+  
+        </form>
+      </mat-card-content>
+  
+      <!-- Display Prediction Result -->
+      <mat-card-footer *ngIf="predictionResult">
+        <h3>Prediction Result: {{ predictionResult }}</h3>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+  

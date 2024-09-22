@@ -1,0 +1,40 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+mat-card-header {
+  text-align: center;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+mat-card-footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  mat-card {
+    padding: 15px;
+  }
+
+  .form-container {
+    padding: 10px;
+  }
+}
