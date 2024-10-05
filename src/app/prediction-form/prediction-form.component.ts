@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PredictionService } from '../prediction.service';
 import { CommonModule } from '@angular/common';
@@ -15,10 +15,14 @@ import { AppModule } from '../app.module';
   styleUrls: ['./prediction-form.component.scss'],
 })
 export class PredictionFormComponent implements OnInit {
-  predictionForm: FormGroup;
-  predictionResult: string | null = null;
+  predictionForm!: FormGroup;
+  predictionResult: any | null = null;
 
-  constructor(private fb: FormBuilder, private predictionService: PredictionService) {
+  constructor(private fb: FormBuilder, private predictionService: PredictionService,private cdr: ChangeDetectorRef) {
+    
+  }
+
+  ngOnInit(): void {
     this.predictionForm = this.fb.group({
       age: ['', [Validators.required, Validators.min(1)]],
       sex: ['', Validators.required],
@@ -27,15 +31,15 @@ export class PredictionFormComponent implements OnInit {
       maxHeartRate: ['', Validators.required]
       // Add validators for other fields
     });
+    
   }
-
-  ngOnInit(): void {}
 
   onSubmit() {
     if (this.predictionForm.valid) {
       this.predictionService.predictHeartDisease(this.predictionForm.value)
         .subscribe((response) => {
           this.predictionResult = response.prediction;
+          this.cdr.detectChanges();
         }, (error) => {
           console.error('Prediction error', error);
         });
