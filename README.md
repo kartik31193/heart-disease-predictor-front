@@ -4,6 +4,10 @@ BACKEND: https://github.com/rebcoder/heart-disease-predictor-back
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.9.
 
+![image](https://github.com/user-attachments/assets/e21d5141-884a-4c80-a815-443fa0df1ed9)
+![image](https://github.com/user-attachments/assets/cebd4d0c-df7e-49cc-8bbf-8c8aceca478b)
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
