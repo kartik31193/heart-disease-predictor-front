@@ -1,5 +1,7 @@
 # HeartDiseasePredictor
 
+BACKEND: https://github.com/rebcoder/heart-disease-predictor-back
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.9.
 
 ## Development server
